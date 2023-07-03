@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" /><!-- ‹really› -->
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>IB111 – Domácí úkol č. 5</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 8px;
+      padding: 0;
+      background-color: #ddeeff;
+      line-height: 1.25;
+    }
+
+    a {
+      text-decoration: none;
+      color: #0645ad;
+    }
+
+    /* pandoc started wrapping code blocks in <a> tags for some reason... */
+    a.sourceLine, a.sourceLine:hover {
+      text-decoration: none;
+      color: black;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    #content {
+      border: 1px solid #ccccff;
+      padding-left: 1em;
+      padding-right: 1em;
+      background-color: white;
+    }
+
+    #menu ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 10px;
+    }
+
+    #menu #logo {
+      margin: 0;
+      font-size: 150%;
+      font-weight: bold;
+      text-align: center;
+      color: navy;
+    }
+
+    #toc-wrapper {
+      padding-top: 1em;
+    }
+
+    #toc {
+      font-size: 80%;
+    }
+
+    #toc-header {
+      color: navy;
+      font-weight: bold;
+    }
+
+    #toc ul {
+      padding-left: 2em;
+      color: navy;
+    }
+
+    h1 {
+      font-size: 175%;
+    }
+
+    h2 {
+      font-weight: normal;
+      border-bottom: 1px solid gray;
+      font-size: 150%;
+    }
+
+    .warning {
+      background-color: #ffdddd;
+      clear: both;
+      margin: 0 1em;
+      padding: 0.5em 1em;
+    }
+
+    @media only screen and (min-width: 700px) {
+      #content {
+        margin-left: 170px;
+      }
+
+      #menu {
+        margin: 0;
+        padding: 0;
+        width: 162px;
+        position: fixed;
+        height: 100%;
+      }
+
+      #menu #logo {
+        font-size: 200%;
+      }
+    }
+
+    @media only screen and (min-width: 500px) {
+      #toc-wrapper {
+        padding: 1em 0 1em 1em;
+        background-color: white;
+        float: right;
+        width: 170px;
+      }
+
+      #toc {
+        border: 1px solid #ccccff;
+        margin-left: 0;
+      }
+
+      #toc-header {
+        background-color: #ccccff;
+        padding: 3px;
+        text-align: center;
+      }
+
+      #toc ul {
+        padding-right: 1em;
+      }
+
+      #toc ul ul {
+        padding-left: 1em;
+        padding-right: 0;
+      }
+
+    }
+
+    @media only screen and (min-width: 550px) and (max-width: 699px) {
+      #menu ul {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      #menu li {
+        display: inline;
+      }
+    }
+
+    /* syntax highlighting -- pygments */
+    table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode, table.sourceCode pre
+    { margin: 0; padding: 0; border: 0; vertical-align: baseline; border: none; }
+    td.lineNumbers { border-right: 1px solid #AAAAAA; text-align: right; color: #AAAAAA; padding-right: 5px; padding-left: 5px; }
+    td.sourceCode { padding-left: 5px; }
+    code.sourceCode span.kw { color: #007020; font-weight: bold; }
+    code.sourceCode span.dt { color: #902000; }
+    code.sourceCode span.dv { color: #40a070; }
+    code.sourceCode span.bn { color: #40a070; }
+    code.sourceCode span.fl { color: #40a070; }
+    code.sourceCode span.ch { color: #4070a0; }
+    code.sourceCode span.st { color: #4070a0; }
+    code.sourceCode span.co { color: #60a0b0; font-style: italic; }
+    code.sourceCode span.ot { color: #007020; }
+    code.sourceCode span.al { color: red; font-weight: bold; }
+    code.sourceCode span.fu { color: #06287e; }
+    code.sourceCode span.re { }
+    code.sourceCode span.er { color: red; font-weight: bold; }
+
+    pre {
+      background: #ffffdd;
+      padding: 0.5em;
+      overflow: auto;
+    }
+
+    .squeeze {
+      line-height: 1;
+    }
+
+    code {
+      white-space: pre;
+      background: #ffffdd;
+      border: 0.3em solid #ffffdd;
+    }
+
+    pre code {
+      border: 0;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td, th {
+      border: 1px solid gray;
+      padding: 0.2em 1em;
+    }
+
+    th {
+      background: lightgray;
+    }
+
+    .alert {
+      color: red;
+    }
+
+    figure {
+      display: inline-block;
+      margin: 20px;
+      text-align: center;
+    }
+
+    .nono th, .nono td {
+      width: 1.2em;
+      height: 1.2em;
+      padding: 0;
+      text-align: center;
+      vertical-align: center;
+    }
+
+    .nono .full {
+      background: black;
+    }
+  </style>
+</head>
+<body>
+  <div id="menu"><div id="logo">IB111</div>
+  <ul>
+    <li><a href="https://is.muni.cz/auth/el/fi/podzim2021/IB111/um/">Učební materiály</a></li>
+    <li><a href="https://is.muni.cz/auth/el/fi/podzim2021/IB111/um/hw/info.html">Domácí úkoly</a></li>
+  </ul></div>
+  <div id="content">
+    <div id="toc-wrapper"><div id="toc"><div id="toc-header">Obsah</div>
+      <ul>
+      <li><a href="#představení-úlohy-rodokmen">Představení úlohy – Rodokmen</a></li>
+      <li><a href="#část-1-reprezentace-a-vytvoření-rodokmenu-2-body">Část 1 – Reprezentace a vytvoření rodokmenu (2 body)</a></li>
+      <li><a href="#část-2-validace-rodokmenu-1-bod">Část 2 – Validace rodokmenu (1 bod)</a></li>
+      <li><a href="#část-3-vykreslení-rodokmenu-1-bod">Část 3 – Vykreslení rodokmenu (1 bod)</a></li>
+      <li><a href="#část-4-zjišťování-vlastností-rodokmenu-3-body">Část 4 – Zjišťování vlastností rodokmenu (3 body)</a></li>
+      <li><a href="#část-5-modifikace-rodokmenu-1-bod">Část 5 – Modifikace rodokmenu (1 bod)</a></li>
+      <li><a href="#poznámka-pořadí-následnictví-absolutní-primogenitura">Poznámka – pořadí následnictví (absolutní primogenitura)</a></li>
+      </ul>
+    </div></div>
+    <h1>Domácí úkol č. 5</h1>
+<p><strong>Zadání:</strong> 19. 11. 2021</p>
+<p><strong>Termíny odevzdání:</strong> (viz kapitolu A ve sbírce)</p>
+<p><strong>Kostra řešení:</strong> <a href="hw5.py">hw5.py</a></p>
+<p><strong>Poznámky k řešení domácího úkolu:</strong></p>
+<ul>
+<li>Pátý domácí úkol se skládá z pěti částí. Bodování jednotlivých částí je uvedeno níže.</li>
+<li>Nezapomeňte si přečíst <a href="info.md">obecné poznámky k domácím úkolům</a>.</li>
+<li>Pište přehledný kód, používejte samopopisná jména proměnných a případné složitější konstrukce opatřete komentářem. <strong>Vyhněte se duplikaci kódu.</strong> Nebojte se přidat si vlastní pomocné funkce / metody!</li>
+<li>Povolené knihovny jsou <code>math</code> a <code>typing</code>.</li>
+<li>Anotujte všechny funkce (i pomocné) tak, aby volání <code>mypy --strict --disallow-any-explicit</code> na vašem kódu prošlo bez problémů. V testech se používá <code>mypy</code> verze 0.903; máte-li nainstalovánu starší verzi a chcete si být jisti výsledkem, můžete ji aktualizovat, nebo použít online nástroj na adrese <a href="https://mypy-play.net/?mypy=latest&amp;python=3.7&amp;flags=strict%2Cdisallow-any-explicit" class="uri">https://mypy-play.net/?mypy=latest&amp;python=3.7&amp;flags=strict%2Cdisallow-any-explicit</a>. Váš kód rovněž nesmí obsahovat anotaci <code class="sourceCode python"><span class="co"># type: ignore</span></code> nebo použití funkce <code>typing.cast</code>.</li>
+<li>Hlavičky funkcí/metod připravených v kostře neměňte, tedy k nim ani nepřidávejte další parametry. Pokud byste něco takového potřebovali, definujte si pomocné funkce.</li>
+</ul>
+<h2 id="představení-úlohy-rodokmen">Představení úlohy – Rodokmen</h2>
+<p>V této úloze budeme pracovat se stromovou strukturou představující jednoduchý rodokmen, který má jednu výchozí osobu, její potomky, potomky jejích potomků atd. (V českém genealogickém názvosloví se tento strom správně nazývá „rozrod“.)</p>
+<h2 id="část-1-reprezentace-a-vytvoření-rodokmenu-2-body">Část 1 – Reprezentace a vytvoření rodokmenu (2 body)</h2>
+<p>Do připravené třídy <code>Person</code>, která reprezentuje osobu v rodokmenu, doplňte inicializační metodu <code>__init__</code>. Objekty této třídy musí mít následující atributy:</p>
+<ul>
+<li><code>pid</code>: identifikační číslo osoby – toto číslo je pro každou osobu unikátní, tj. nebudou existovat dvě osoby se stejným <code>pid</code>;</li>
+<li><code>name</code>: jméno osoby (řetězec);</li>
+<li><code>birth_year</code>: rok narození osoby;</li>
+<li><code>parent</code>: rodič osoby nebo <code class="sourceCode python"><span class="va">None</span></code>, pokud je aktuální osoba výchozí osobou rodokmenu;</li>
+<li><code>children</code>: seznam přímých potomků (dětí) osoby.</li>
+</ul>
+<p>Přesná podoba inicializační metody (počet a typy parametrů) je na vás. Kromě uvedených atributů si můžete přidat libovolné vlastní.</p>
+<p>Dále implementuje čistou funkci</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">def</span> build_family_tree(names: Dict[<span class="bu">int</span>, <span class="bu">str</span>],</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>                      children: Dict[<span class="bu">int</span>, List[<span class="bu">int</span>]],</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>                      birth_years: Dict[<span class="bu">int</span>, <span class="bu">int</span>]) <span class="op">-&gt;</span> Optional[Person]</span></code></pre></div>
+<p>která vytvoří rodokmen podle zadaných údajů. Parametry této funkce jsou:</p>
+<ul>
+<li><code>names</code> je slovník, který <code>pid</code> osoby přiřazuje její jméno.</li>
+<li><code>children</code> je slovník, který <code>pid</code> osoby přiřazuje seznam <code>pid</code> jejích přímých potomků. Pokud nějaká osoba nemá položku v tomto slovníku, znamená to, že nemá žádné potomky. Smíte předpokládat, že tento slovník neobsahuje žádné cyklické vztahy (tj. že by někdo byl svým vlastním přímým nebo nepřímým potomkem).</li>
+<li><code>birth_years</code> je slovník, který <code>pid</code> osoby přiřazuje její rok narození. Smíte přitom předpokládat, že hodnoty slovníku jsou vždy kladná celá čísla.</li>
+</ul>
+<p>Řešení za 1 bod smí dále předpokládat, že vstup splňuje následující podmínky:</p>
+<ul>
+<li>slovník <code>names</code> obsahuje jako klíč každé <code>pid</code>, které se vyskytuje jako klíč ve slovnících <code>birth_years</code> nebo <code>children</code>;</li>
+<li>slovník <code>birth_years</code> obsahuje jako klíč každé <code>pid</code>, které se vyskytuje jako klíč ve slovníku <code>names</code>;</li>
+<li>existuje vždy právě jedna <em>výchozí osoba</em> (osoba, která nemá žádného rodiče);</li>
+<li>žádná osoba není přímým potomkem dvou různých osob v rodokmenu;</li>
+</ul>
+<p>a vrátí výchozí osobu rodokmenu. Řešení za 2 body navíc v případech porušení jedné z těchto čtyř podmínek vrátí <code class="sourceCode python"><span class="va">None</span></code>.</p>
+<p>Nezapomeňte při vytváření rodokmenu vždy správně nastavit všechny požadované atributy objektů typu <code>Person</code> (zejména <code>parent</code> a <code>children</code>). Pořadí objektů v atributu <code>children</code> musí odpovídat pořadí v odpovídajícím seznamu ze vstupního slovníku <code>children</code>.</p>
+<p>Ve všech dalších částech smíte předpokládat, že objekty typu <code>Person</code> jsou součástí rodokmenu, který vznikl funkcí <code>build_family_tree</code>.</p>
+<h2 id="část-2-validace-rodokmenu-1-bod">Část 2 – Validace rodokmenu (1 bod)</h2>
+<p>Implementujte následující metodu-predikát třídy <code>Person</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>    <span class="kw">def</span> is_valid(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">bool</span></span></code></pre></div>
+<p>Tato metoda zkontroluje, jestli rodokmen směrem „dolů“ od aktuální osoby (tedy směrem k potomkům), splňuje následující podmínky:</p>
+<ul>
+<li>jméno žádné osoby není prázdné;</li>
+<li>každá osoba se narodila později než její rodič;</li>
+<li>žádní dva sourozenci nemají stejné jméno.</li>
+</ul>
+<p>V případě, že jsou tyto podmínky splněny, vrací <code class="sourceCode python"><span class="va">True</span></code>, jinak vrací <code class="sourceCode python"><span class="va">False</span></code>.</p>
+<p>Dále implementuje predikát (jako volnou funkci, tedy nikoli metodu)</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">def</span> valid_family_tree(person: Person) <span class="op">-&gt;</span> <span class="bu">bool</span></span></code></pre></div>
+<p>který zkontroluje, že výše zmíněné podmínky platí pro <em>celý rodokmen</em>, jehož součástí je zadaná osoba.</p>
+<p>Ve všech dalších částech smíte předpokládat, že rodokmen splňuje predikát <code>valid_family_tree</code>.</p>
+<h2 id="část-3-vykreslení-rodokmenu-1-bod">Část 3 – Vykreslení rodokmenu (1 bod)</h2>
+<p>Implementuje následující metodu, která textově vykreslí rodokmen podle níže uvedeného vzoru:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>    <span class="kw">def</span> draw(<span class="va">self</span>, names_only: <span class="bu">bool</span>) <span class="op">-&gt;</span> <span class="va">None</span></span></code></pre></div>
+<p>Vykresluje se pouze směrem „dolů“ od aktuální osoby, tj. aktuální osoba, její potomci, potomci jejích potomků, atd.; ignorují se rodiče aktuální osoby. Metoda draw nemodifikuje aktuální objekt.</p>
+<p>Příklad výstupu (funkci použitou k vytvoření tohoto rodokmenu najdete v kostře řešení) po zavolání <code>draw(False)</code> na výchozí osobě.</p>
+<pre><code>Qempa&#39; (2256) [17]
+├─ Thok Mak (2281) [127]
+│  ├─ Ag&#39;ax (2317) [611]
+│  ├─ K&#39;alaga (2302) [561]
+│  └─ Samtoq (2317) [702]
+└─ Worf (2290) [290]
+   └─ Mogh (2310) [490]
+      ├─ Worf (2340) [390]
+      │  ├─ K&#39;Dhan (2388) [898]
+      │  └─ Alexander Rozhenko (2366) [1000]
+      │     └─ D&#39;Vak (2390) [253]
+      └─ Kurn (2345) [590]
+         ├─ Grehka (2359) [429]
+         ├─ Elumen (2357) [106]
+         └─ Ga&#39;ga (2366) [101]</code></pre>
+<p>Příklad výstupu po zavolání <code>draw(True)</code> na osobě jménem <code>Mogh</code>:</p>
+<pre><code>Mogh
+├─ Worf
+│  ├─ K&#39;Dhan
+│  └─ Alexander Rozhenko
+│     └─ D&#39;Vak
+└─ Kurn
+   ├─ Grehka
+   ├─ Elumen
+   └─ Ga&#39;ga</code></pre>
+<p>Všimněte si zejména toho, že</p>
+<ul>
+<li>k vykreslování používáme následující znaky ze sady Unicode: <code>└ ─ ├ │</code>;</li>
+<li>svislá čára (tvořená znaky <code>│ ├ └</code>) sahá vždy jen tak daleko, jak je třeba;</li>
+<li>každá další úroveň začíná přesně o tři znaky více vpravo než předchozí;</li>
+<li>má-li parametr <code>names_only</code> hodnotu <code>True</code>, vypisujeme pouze jména osob; v opačném případě vypisujeme jméno, následované rokem narození v kulatých závorkách a <code>pid</code> osoby v hranatých závorkách, vše oddělené jednou mezerou.</li>
+</ul>
+<h2 id="část-4-zjišťování-vlastností-rodokmenu-3-body">Část 4 – Zjišťování vlastností rodokmenu (3 body)</h2>
+<p>Implementuje následující čisté metody. Příklady výstupu najdete v kostře řešení.</p>
+<ul>
+<li><code class="sourceCode python">parents_younger_than(<span class="va">self</span>, age_limit: <span class="bu">int</span>) <span class="op">-&gt;</span> Set[<span class="bu">int</span>]</code> vrátí množinu <code>pid</code> všech osob, které měly dítě ve věku menším než <code>age_limit</code>.</li>
+<li><code class="sourceCode python">parents_older_than(<span class="va">self</span>, age_limit: <span class="bu">int</span>) <span class="op">-&gt;</span> Set[<span class="bu">int</span>]</code> vrátí množinu <code>pid</code> všech osob, které měly dítě ve věku větším než <code>age_limit</code>.</li>
+<li><code class="sourceCode python">childless(<span class="va">self</span>) <span class="op">-&gt;</span> Set[<span class="bu">int</span>]</code> vrátí množinu <code>pid</code> všech osob, které nemají žádné děti.</li>
+<li><code class="sourceCode python">ancestors(<span class="va">self</span>) <span class="op">-&gt;</span> List[<span class="st">&#39;Person&#39;</span>]</code> vrátí seznam všech předků aktuální osoby v pořadí od nejstaršího.</li>
+<li><code class="sourceCode python">order_of_succession(<span class="va">self</span>, alive: Set[<span class="bu">int</span>]) <span class="op">-&gt;</span> Dict[<span class="bu">int</span>, <span class="bu">int</span>]</code> dostane na vstupu množinu <code>pid</code> žijících osob a vrátí slovník, který <code>pid</code> každé osoby přiřadí pořadí následnictví (podobně jako u královských rodů). Přitom uvažujeme tzv. absolutní primogenituru – nerozlišujeme pohlaví osob (ani nemáme jak) a přednost má vždy nejstarší potomek. Jsou-li dva potomci stejně staří (narozeni ve stejném roce), přednost má ten, který je dřív v seznamu <code>children</code>. (Podrobnější vysvětlení a příklad je níže.)</li>
+</ul>
+<p>Všechny tyto metody, kromě metody <code>ancestors</code>, se zabývají vždy jen podstromem aktuální osoby, tj. aktuální osobou, jejími potomky, potomky jejích potomků atd.</p>
+<h2 id="část-5-modifikace-rodokmenu-1-bod">Část 5 – Modifikace rodokmenu (1 bod)</h2>
+<p>Implementujte metodu <code>remove_extinct_branches(self, alive: Set[int]) -&gt; None</code>, která dostane na vstupu množinu <code>pid</code> žijících osob a odstraní z rodokmenu všechny vyhynulé větve, tj. osoby, které již nežijí ani nemají žádné (ani nepřímé) žijící potomky. Přitom zpracováváme pouze podstrom aktuální osoby (<code>self</code>) a tuto osobu z rodokmenu neodstraňujeme.</p>
+<p>Výše uvedený rodokmen se po zavolání <code>remove_extinct_branches({101, 106, 253, 429, 561, 611, 702, 898}</code> na výchozí osobě nijak nezmění.</p>
+<p>Výše uvedený rodokmen po zavolání <code>remove_extinct_branches({101, 106, 253, 390, 898, 1000})</code> na výchozí osobě bude vypadat takto:</p>
+<pre><code>Qempa&#39;
+└─ Worf
+   └─ Mogh
+      ├─ Worf
+      │  ├─ K&#39;Dhan
+      │  └─ Alexander Rozhenko
+      │     └─ D&#39;Vak
+      └─ Kurn
+         ├─ Elumen
+         └─ Ga&#39;ga</code></pre>
+<p>Výše uvedený rodokmen po zavolání <code>remove_extinct_branches({101, 106, 253, 390, 898, 1000})</code> na osobě jménem <code>Mogh</code> bude vypadat takto:</p>
+<pre><code>Qempa&#39;
+├─ Thok Mak
+│  ├─ Ag&#39;ax
+│  ├─ K&#39;alaga
+│  └─ Samtoq
+└─ Worf
+   └─ Mogh
+      ├─ Worf
+      │  ├─ K&#39;Dhan
+      │  └─ Alexander Rozhenko
+      │     └─ D&#39;Vak
+      └─ Kurn
+         ├─ Elumen
+         └─ Ga&#39;ga</code></pre>
+<h2 id="poznámka-pořadí-následnictví-absolutní-primogenitura">Poznámka – pořadí následnictví (absolutní primogenitura)</h2>
+<p>Pořadí následnictví podle tzv. absolutní primogenitury funguje podle těchto principů: (a) Přednost má vždy starší potomek před mladším. (b) Děti nahrazují rodiče, tj. potomci osoby mají přednost před jejími sourozenci.</p>
+<p>Ukážeme si to na příkladu rodokmenu výše. Nejprve předpokládejme, že všechny zmíněné osoby stále žijí. Následníci výchozí osoby (<em>Qempa’</em>) mají toto pořadí:</p>
+<ol type="1">
+<li><em>Thok Mak</em> je nejstarším potomkem. Je tedy prvním následníkem.</li>
+<li><em>K’alaga</em> je nestarším potomkem prvního následníka. Protože potomci mají přednost před sourozenci, je druhým následníkem.</li>
+<li><em>Ag’ax</em> je dalším v pořadí (<em>K’alaga</em> žádné potomky nemá a ačkoli <em>Ag’ax</em> a <em>Samtoq</em> jsou stejně staří, <em>Ag’ax</em> je v seznamu dětí dříve).</li>
+<li><em>Samtoq</em></li>
+<li><em>Worf (2290)</em> je dalším potomkem výchozí osoby. (Už jsme vyčerpali všechny potomky prvního následníka.)</li>
+<li><em>Mogh</em> je jediným potomkem.</li>
+<li><em>Worf (2340)</em> je nejstarším potomkem osoby <em>Mogh</em>.</li>
+<li><em>Alexander Rozhenko</em> je nestarším potomkem osoby <em>Worf (2340)</em>. (Opět vidíme, že má přednost potomek před sourozencem.)</li>
+<li><em>D’Vak</em> (opět přednost potomka před sourozencem)</li>
+<li><em>K’Dhan</em></li>
+<li><em>Kurn</em> (po vyčerpání všech potomků jeho sourozence)</li>
+<li><em>Elumen</em></li>
+<li><em>Grehka</em></li>
+<li><em>Ga’ga</em></li>
+</ol>
+<p>V případě, že některé osoby již nežijí, vyloučíme je z pořadí následnictví, ale jejich potomky ponecháme. Pokud tedy předpokládáme, že již nejsou naživu osoby <em>Qempa’</em>, <em>Thok Mak</em>, <em>Worf (2290)</em>, <em>Mogh</em> a <em>Kurn</em>, pořadí následníků osoby <em>Qempa’</em> je toto:</p>
+<ol type="1">
+<li><em>K’alaga</em></li>
+<li><em>Ag’ax</em></li>
+<li><em>Samtoq</em></li>
+<li><em>Worf (2340)</em></li>
+<li><em>Alexander Rozhenko</em></li>
+<li><em>D’Vak</em></li>
+<li><em>K’Dhan</em></li>
+<li><em>Elumen</em></li>
+<li><em>Grehka</em></li>
+<li><em>Ga’ga</em></li>
+</ol>
+<p>Pokud by nás zajímalo pouze následnictví osoby <em>Mogh</em>, pak je pořadí toto:</p>
+<ol type="1">
+<li><em>Worf (2340)</em></li>
+<li><em>Alexander Rozhenko</em></li>
+<li><em>D’Vak</em></li>
+<li><em>K’Dhan</em></li>
+<li><em>Elumen</em></li>
+<li><em>Grehka</em></li>
+<li><em>Ga’ga</em></li>
+</ol>
+<p>Odkazy:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Primogeniture#Absolute_primogeniture" class="uri">https://en.wikipedia.org/wiki/Primogeniture#Absolute_primogeniture</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Succession_to_the_British_throne" class="uri">https://en.wikipedia.org/wiki/Succession_to_the_British_throne</a> (příklad pořadí následnictví – pozor ovšem na to, že do roku 2011 fungovala v Británii mužská primogenitura, kde měli synové přednost před dcerami nezávisle na věku)</li>
+</ul>
+  </div>
+</body>
+</html>
